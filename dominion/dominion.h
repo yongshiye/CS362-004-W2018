@@ -133,7 +133,7 @@ void adventurerCardEffect(int drawntreasure, int temphand[], int z, int currentP
 
 void council_roomCardEffect(int currentPlayer, struct gameState *state, int handPos);
 
-void villageCardEffect(int currentPlayer, struct gameState *state, int handPos);
+void feastCardEffect(int choice1, int temphand[], int currentPlayer, struct gameState *state, int handPos);
 
 void smithyCardEffect(int currentPlayer, struct gameState *state, int handPos);
 
