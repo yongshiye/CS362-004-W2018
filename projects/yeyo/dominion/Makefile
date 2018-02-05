@@ -1,5 +1,16 @@
 CFLAGS = -Wall -fpic -coverage -lm
+unittest1: unittest1.c dominion.o rngs.o refactor.o
+	gcc -o unittest1 -g unittest1.c dominion.o rngs.o refactor.o $(CFLAGS)
 
+unittest2: unittest2.c dominion.o rngs.o refactor.o
+	gcc -o unittest2 -g unittest2.c dominion.o rngs.o refactor.o $(CFLAGS)
+	
+unittest3: unittest3.c dominion.o rngs.o refactor.o
+	gcc -o unittest3 -g unittest3.c dominion.o rngs.o refactor.o $(CFLAGS)
+	
+unittest4: unittest4.c dominion.o rngs.o refactor.o
+	gcc -o unittest4 -g unittest4.c dominion.o rngs.o refactor.o $(CFLAGS)
+	
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
 
@@ -24,6 +35,16 @@ testAll: dominion.o testSuite.c
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
+unittestresult.out: unittest1 unittest2 unittest3 unittest4
+	./unittest1 > unittestresult.out
+	./unittest2 >> unittestresult.out
+	./unittest3 >> unittestresult.out
+	./unittest4 >> unittestresult.out
+	gcov dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	gcov -b dominion.c >> unittestresult.out
+	cat dominion.c.gcov >> unittestresult.out
+	
 runtests: testDrawCard 
 	./testDrawCard &> unittestresult.out
 	gcov dominion.c >> unittestresult.out
@@ -33,7 +54,7 @@ runtests: testDrawCard
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
-all: playdom player testDrawCard testBuyCard badTestDrawCard
+all: playdom player unittest1 unittest2 unittest3 unittest4 testDrawCard testBuyCard badTestDrawCard unittestresult.out
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
