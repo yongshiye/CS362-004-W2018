@@ -33,7 +33,9 @@ int main()
     //Test adventurer Card
     adventurerCardEffect(0,temphand,z,currentPlayer,&test);
     printf("Check Players State\n");
-    assert(test.handCount[currentPlayer] == handCount + 2);
+    if(test.handCount[currentPlayer] != handCount + 1){
+      printf("handCount don't match Actual: %d Expected: %d\n",test.handCount[currentPlayer], handCount + 1);
+    }
     if(test.deckCount[currentPlayer] != deckCount - 3){
       printf("deckCount don't match Actual: %d Expected: %d\n",test.deckCount[currentPlayer], deckCount - 3);
     }

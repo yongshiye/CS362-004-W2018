@@ -46,6 +46,13 @@ int main()
 	assert(test.coins == 5);
 	assert(test.numBuys == 1);
 	
+	endTurn(&test);
+	assert(test.outpostPlayed == 0);
+	assert(test.whoseTurn == currentPlayer);
+	assert(test.phase == 0);
+	assert(test.numActions  == 1);
+	assert(test.numBuys == 1);
+
 	printf("endTurn Testing Successfully\n");
 
 	return 0;

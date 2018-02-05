@@ -42,7 +42,7 @@ int main()
 	//Set Player Hand Card
 	test.hand[currentPlayer][0] = gold;
 	test.hand[currentPlayer][1] = copper;
-	test.hand[currentPlayer][2] = duchy;
+	test.hand[currentPlayer][2] = silver;
 	test.hand[currentPlayer][3] = estate;
 	test.hand[currentPlayer][4] = village;
 	test.handCount[currentPlayer] = 5;
