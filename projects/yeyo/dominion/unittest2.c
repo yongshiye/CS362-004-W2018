@@ -5,6 +5,7 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include "rngs.h"
+#include <assert.h>
 
 int main()
 {
@@ -15,26 +16,24 @@ int main()
 
 	initializeGame(numPlayers, k, seed, &test);
 		
-	int currentPlayer = whoseTurn(&test);
-
 	//Unit TEST 1: isGameOver Province cards is empty
 	printf("Unit TEST 1: isGameOver Province cards is empty \n");
-	control.supplyCount[province] = 0;
+	test.supplyCount[province] = 0;
 	assert(isGameOver(&test) == 1);
 	
 	
 	//Unit TEST 2: isGameOver three supply pile are at 0
-	printf("Unit TEST 1: isGameOver three supply pile are at 0 \n");
-	control.supplyCount[province] = 0;
-	control.supplyCount[smithy] = 0;
-	control.supplyCount[adventurer] = 0;
+	printf("Unit TEST 2: isGameOver three supply pile are at 0 \n");
+	test.supplyCount[province] = 0;
+	test.supplyCount[smithy] = 0;
+	test.supplyCount[adventurer] = 0;
 	assert(isGameOver(&test) == 1);
 	
 	//Unit TEST 2: isGameOver three supply pile are at 0
-	printf("Unit TEST 1: isGameOver three supply pile are at 0 \n");
-	control.supplyCount[province] = 5;
-	control.supplyCount[smithy] = 5;
-	control.supplyCount[adventurer] = 5;
+	printf("Unit TEST 3: isGameOver, neither above \n");
+	test.supplyCount[province] = 5;
+	test.supplyCount[smithy] = 5;
+	test.supplyCount[adventurer] = 5;
 	assert(isGameOver(&test) == 0);
 	
 	printf("isGameOver Testing Successfully\n");

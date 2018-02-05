@@ -5,6 +5,7 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include "rngs.h"
+#include <assert.h>
 
 int main()
 {
@@ -18,7 +19,7 @@ int main()
 	int currentPlayer = whoseTurn(&test);
 	int nextPlayer = (currentPlayer+1)%2;
 	//Unit TEST 1: endTurn
-	printf("TEST 1: endTurn\n");
+	printf("Unit TEST 1: endTurn\n");
 	
 	//set currentPlayer's hand and deck
 	test.hand[currentPlayer][0] = copper;

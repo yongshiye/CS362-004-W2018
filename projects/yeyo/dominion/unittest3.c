@@ -5,6 +5,7 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include "rngs.h"
+#include <assert.h>
 
 int main()
 {
@@ -30,7 +31,9 @@ int main()
 	
 	discardCard(4, currentPlayer, &test, 0);
 	assert(test.handCount[currentPlayer] == 4);
-	assert(test.discardCount[currentPlayer] == discardCount+1);
+	if(test.discardCount[currentPlayer] != discardCount+1){
+      printf("discardCount don't match Actual: %d Expected: %d\n",test.discardCount[currentPlayer], discardCount+1);
+    }
 	
 	
 	//Unit TEST 2: discardCard only one card in hand
@@ -42,7 +45,9 @@ int main()
 	discardCard(1, currentPlayer, &test, 0);
 	
 	assert(test.handCount[currentPlayer] == 0);
-	assert(test.discardCount[currentPlayer] == discardCount+1);
+	if(test.discardCount[currentPlayer] != discardCount+1){
+      printf("discardCount don't match Actual: %d Expected: %d\n",test.discardCount[currentPlayer], discardCount+1);
+    }
 	
 	//Unit TEST 3: discardCard trashFlag <1
 	printf("Unit TEST 3: Unit TEST 3: discardCard trashFlag <1 \n");
@@ -55,11 +60,15 @@ int main()
 	int playedCardCount = test.playedCardCount;
 	discardCount = test.discardCount[currentPlayer];
 	
-	discardCard(2, currentPlayer, &test, 1);
+	discardCard(2, currentPlayer, &test, 0);
 	assert(test.handCount[currentPlayer] == 4);
-	assert(test.discardCount[currentPlayer] == discardCount+1);
-	assert(test.playedCardCount == playedCardCount+1);
-	
+	if(test.discardCount[currentPlayer] != discardCount+1){
+      printf("discardCount don't match Actual: %d Expected: %d\n",test.discardCount[currentPlayer], discardCount+1);
+    }
+	//assert(test.playedCardCount == playedCardCount+1);
+	if(test.playedCardCount != playedCardCount + 1){
+      printf("playedCardCount don't match Actual: %d Expected: %d\n", test.playedCardCount, playedCardCount+1);
+    }
 	
 	//Unit TEST 4: discardCard
 	printf("Unit TEST 4: Unit TEST 3: discardCard trashFlag <1 \n");
@@ -70,13 +79,15 @@ int main()
 	test.hand[currentPlayer][4] = silver;
 	test.handCount[currentPlayer] = 5;
 	discardCount = test.discardCount[currentPlayer];
-	int lastCard = test.hand[currentPlayer][state->handCount[currentPlayer] - 1]
+	int lastCard = test.hand[currentPlayer][test.handCount[currentPlayer] - 1];
 	
 	
 	discardCard(2, currentPlayer, &test, 1);
 	assert(test.handCount[currentPlayer] == 4);
-	assert(test.discardCount[currentPlayer] == discardCount+1);
-	assert(state->hand[currentPlayer][2] == lastCard);
+	if(test.discardCount[currentPlayer] != discardCount + 1){
+      printf("discardCount don't match Actual: %d Expected: %d\n", test.discardCount[currentPlayer], discardCount+1);
+    }
+	assert(test.hand[currentPlayer][2] == lastCard);
 	printf("discardCard Testing Successfully\n");
 
 	return 0;
