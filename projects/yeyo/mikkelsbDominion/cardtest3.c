@@ -22,7 +22,8 @@ int main()
     int numActions = test.numActions;
     
     //Testing village card
-    villageCardEffect(currentPlayer,&test,0);
+    int bonus = 0;
+    cardEffect(village,0 ,0 ,0 , &test, 0, &bonus);
     printf("Check Players State\n");
     assert(test.handCount[currentPlayer] == handCount);
     assert(test.deckCount[currentPlayer] == deckCount - 1);

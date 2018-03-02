@@ -71,7 +71,7 @@ testAll: dominion.o testSuite.c
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
-unittestresult.out: unittest1 unittest2 unittest3 unittest4
+unittestresult.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
 	./unittest1 > unittestresult.out
 	./unittest2 >> unittestresult.out
 	./unittest3 >> unittestresult.out

@@ -31,7 +31,9 @@ int main()
     test.deck[currentPlayer][deckCounter - 3] = silver;
 
     //Test adventurer Card
-    adventurerCardEffect(0,temphand,z,currentPlayer,&test);
+    int drawntreasure = 0;
+    int cardDrawn = copper;
+    adventurerCardEffect(&drawntreasure,&test,&currentPlayer,&temphand,&z,&cardDrawn);
     printf("Check Players State\n");
     if(test.handCount[currentPlayer] != handCount + 1){
       printf("handCount don't match Actual: %d Expected: %d\n",test.handCount[currentPlayer], handCount + 1);

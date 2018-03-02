@@ -14,6 +14,7 @@ int main()
    	int seed = 1000;
 
    	int currentPlayer = 0;
+    int handPos = 0;
    	//initialize game
    	initializeGame(numPlayers, k, seed, &test);
    	printf("---------- Testing smithy card ----------\n"); 
@@ -22,10 +23,14 @@ int main()
    	int deckCount = test.deckCount[currentPlayer];
    	
    	//Test smithy card
-   	smithyCardEffect(currentPlayer,&test,0);
+   	smithyCardEffect(&test, &currentPlayer,&handPos);
    	printf("Check Players State\n");
-   	assert(test.handCount[currentPlayer] == handCount + 2);
-   	assert(test.deckCount[currentPlayer] == deckCount - 3);
+    if(test.handCount[currentPlayer] != handCount + 2){
+      printf("Hand Count not Correct! Actual: %d  Expected: %d\n",test.handCount[currentPlayer],handCount+2); 
+    }
+    if(test.deckCount[currentPlayer] != deckCount - 3){
+      printf("Deck Count not Correct! Actual: %d  Expected: %d\n",test.deckCount[currentPlayer],deckCount-3); 
+    }
 
     printf("\n---------- Testing smithy card Successfully----------\n"); 
     return 0;

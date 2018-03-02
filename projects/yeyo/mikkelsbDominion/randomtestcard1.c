@@ -38,8 +38,7 @@ int main()
         int handCount = test.handCount[currentPlayer];
     	int deckCount = test.deckCount[currentPlayer];
     	//int discardCount = test.discardCount[currentPlayer];
-
-    	smithyCardEffect(currentPlayer,&test,handPos);
+      smithyCardEffect(&test, &currentPlayer,&handPos);
    		printf("Check Players State %d\n", i);
    		if(test.handCount[currentPlayer] != handCount + 2 ){
    			testFailed = 1;

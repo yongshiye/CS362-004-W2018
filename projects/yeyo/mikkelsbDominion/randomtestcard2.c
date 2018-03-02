@@ -39,7 +39,10 @@ int main()
     	int deckCount = test.deckCount[currentPlayer];
     	//int discardCount = test.discardCount[currentPlayer];
     	int numActions = test.numActions;
-    	villageCardEffect(currentPlayer,&test,handPos);
+      
+      int bonus = 0;
+      cardEffect(village,0 ,0 ,0 , &test, handPos, &bonus);
+
    		printf("Check Players State %d\n", i);
    		if(test.handCount[currentPlayer] != handCount ){
    			testFailed = 1;

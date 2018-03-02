@@ -26,7 +26,8 @@ int main()
     int otherPlayerHDeckCount = test.deckCount[otherPlayer];
 
     //Testing council room card
-    council_roomCardEffect(currentPlayer,&test,0);
+    int handPos =0;
+    councilRoomCardEffect(&test,&currentPlayer,&handPos);
     printf("Check Players State\n");
     assert(test.handCount[currentPlayer] == handCount + 3);
     assert(test.deckCount[currentPlayer] == deckCount - 4);
