@@ -1,0 +1,12 @@
+
+*.gcda
+*.plist
+projects/yeyo/mikkelsbDominion/unittest4.dSYM/Contents/Resources/DWARF/unittest4
+*.gcno
+projects/yeyo/mikkelsbDominion/unittest3.dSYM/Contents/Resources/DWARF/unittest3
+projects/yeyo/mikkelsbDominion/unittest2.dSYM/Contents/Resources/DWARF/unittest2
+projects/yeyo/mikkelsbDominion/unittest1.dSYM/Contents/Resources/DWARF/unittest1
+projects/yeyo/mikkelsbDominion/unittest2
+projects/yeyo/mikkelsbDominion/unittest3
+projects/yeyo/mikkelsbDominion/unittest4
+projects/yeyo/mikkelsbDominion/unittest1
