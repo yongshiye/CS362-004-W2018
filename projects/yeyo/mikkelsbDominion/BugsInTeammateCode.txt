@@ -1,0 +1,27 @@
+#######1.adventurerCardEffect
+int adventurerCardEffect(int* drawntreasure, struct gameState* state, int* currentPlayer, int* temphand, int* z, int* cardDrawn) 
+
+In the method above parameter drawntreasure defined is *drawntreasure.
+
+But when using drawntreasure in the while loop, it is using drawntreasure withouth ‘*’. It is causing my card test failed.
+while(drawntreasure<2){}, 
+
+
+#######2.smithyCardEffect
+In the orginal code, smithy card will draw 3 cards.
+case smithy:
+      for (i = 0; i < 3; i++)
+	{
+	  drawCard(currentPlayer, state);
+	}
+
+But in his smithyCardEffect method, for loop is checking i<=3 which will draw 4 cards.
+for (i = 0; i <= 3; i++)
+
+#######3.mineCardEffect
+int mineCardEffect(struct gameState* state, int* currentPlayer, int* choice1, int* choice2, int* handPos, int* j) { 
+
+In the method above parameter j defined is a pointer *j.
+
+But when using j in a if state, it is using j withouth ‘*’. It is causing runtime failure.
+if (state->hand[*currentPlayer][i] == j)

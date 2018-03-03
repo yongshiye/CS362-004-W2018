@@ -644,7 +644,7 @@ int getCost(int cardNumber)
 }
 
 int adventurerCardEffect(int* drawntreasure, struct gameState* state, int* currentPlayer, int* temphand, int* z, int* cardDrawn) {
-  while(drawntreasure<2){
+  while(*drawntreasure<2){
     if (state->deckCount[*currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
       shuffle(*currentPlayer, state);
 	  }
@@ -773,7 +773,7 @@ int mineCardEffect(struct gameState* state, int* currentPlayer, int* choice1, in
   //discard trashed card
   for (i = 0; i < state->handCount[*currentPlayer]; i++)
   {
-    if (state->hand[*currentPlayer][i] == j)
+    if (state->hand[*currentPlayer][i] == *j)
     {
       discardCard(i, *currentPlayer, state, 0);			
       break;
@@ -785,7 +785,7 @@ int mineCardEffect(struct gameState* state, int* currentPlayer, int* choice1, in
 int smithyCardEffect(struct gameState* state, int* currentPlayer, int* handPos) {
         //+3 Cards
       int i;
-      for (i = 0; i <= 3; i++)
+      for (i = 0; i < 3; i++)
 	{
 	  drawCard(*currentPlayer, state);
 	}
