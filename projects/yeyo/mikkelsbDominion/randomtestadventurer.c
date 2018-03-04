@@ -20,8 +20,8 @@ int main()
 
     printf ("----  -RANDOM TESTS- ----\n");
     int testFailed = 0;
-
-    for (int i = 0; i < RANDOM_TEST_MAX; i++){
+    int i;
+    for (i = 0; i < RANDOM_TEST_MAX; i++){
     	int numPlayers = (rand() % 3)+2;;
     	int currentPlayer = 0;
 
