@@ -5,10 +5,10 @@ import java.util.Random;
 import org.junit.Test;
 
 
-public class UrlValidatorRandTest {
+public class RandomTestURLValidator {
 	private static Random rand = new Random();
 	   
-	public UrlValidatorRandTest() {
+	public RandomTestURLValidator() {
 	}
 	 
 	public ResultPair getRandTestCase(){
